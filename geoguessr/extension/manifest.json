@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "GeoGuessr Extractor",
+  "version": "1.0",
+  "description": "Extracts coordinates from GeoGuessr",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.geoguessr.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["*://*.geoguessr.com/*"]
+    }
+  ]
+}
